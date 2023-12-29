@@ -1,0 +1,80 @@
+<!DOCTYPE html> <!--type le fichier en html-->
+<html lang="en"> <!--mets la langue en anglais-->
+
+<head> <!--l'en-tête-->
+  <meta charset="UTF-8"><!--  Meta Charset est un attribut qui détermine la façon dont le texte est transmis et stocké-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- garantit qu'IE utilise le dernier moteur de rendu disponible pour rendre une page Web, ce qui contribue à assurer la compatibilité avec les normes et fonctionnalités Web modernes-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!--ligne pour gérer la taille sur différent écran en rapport avec les divs-->
+  <link rel="stylesheet" type="text/css" href="creations-videos.css"><!--convertir mon site html en html/css-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title> Créations vidéos </title> <!-- titre de l'onglet -->
+  <link rel="icon" href="Sans titre-3.png">
+  <link rel="stylesheet" href="index.css" type="text/css">
+</head>
+<body>
+    <div class="background">
+    <div class="gradient"> <!-- Ca c'est la partie du fond d'écran -->
+        <canvas id="cnv"></canvas> <!-- Ca c'est la partie qui gère les étoiles -->
+        <div class="content"> <!-- C'est le content de base, on va l'appeler le contenu d'accord ? -->
+            <div class="blocFlex"> <!-- A parti d'ici, j'indique que je veux diviser la barre de navigation en deux : à gauche la barre de navigation, à droite, ton logo -->
+            <div class="element"> <!-- Premier côté, le côté gauche -->
+                <nav class="navbar"> <!-- C'est une bar de navigation donc c'est une navbar en HTML -->
+                  <ul class="nav-list"> <!--On ouvre la liste avec ul -->
+                    <li><a href="a-propos-de-moi.html">À propos de moi</a></li>
+                    <li><a href="Inspirations.html">Inspirations</a></li> <!-- Ca c'est un lien, pareil pour les trois du dessous -->
+                    <li><a href="Créations vidéos.html">Créations vidéos</a></li>
+                    <li><a href="Créations photos.html">Créations photos</a></li>
+                  </ul>
+                </nav>
+            </div>
+            <div class="element"> <!-- Ah, encore la class element, deuxième côté -->
+                <div class="logo">
+                    <figure><img src="helvsoriginalblanc.png" alt="helvs"></figure>
+                     <!-- Ton logo, enfin l'accès. D'ailleurs, je te recommande de pas mettre d'espace dans le nom de tes fichiers -->
+                </div>
+            </div>
+        </div>
+        <br class="line" />
+            <div id="hr">
+                <hr style="margin:auto" />
+            </div>
+        </div>
+    </div>
+</body>
+<script> /* Le code qui gère les étoiles, mais t'as pas besoin d'y toucher normalement */
+    var ctx = cnv.getContext("2d");
+    var W = window.innerWidth;
+    var H = window.innerHeight;
+    
+    cnv.width = W;
+    cnv.height = H;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "white"; /* Couleur des ombres de l'étoile */
+    
+    // Ajoutez une variable pour le nombre maximum d'étoiles
+    var maxStars = 150; /* Maxi d'étoiles*/
+    var starCount = 0;
+    
+    function animate() {
+        if (starCount < maxStars) {
+            //Random position and size of stars;
+            let x = W * Math.random();
+            let y = H * Math.random();
+            let r = 2.5 * Math.random();
+            
+            //Draw the stars;
+            ctx.beginPath();
+            ctx.fillStyle = "white";
+            ctx.arc(x, y, r, 0, Math.PI * 2);
+            ctx.fill();
+            
+            starCount++; // Augmenter le compteur d'étoiles
+        }
+        
+        //Using setTimeout instead of window.requestAnimationFrame for slower speed... window.requestAnimationFrame is approximately equal to setTimeout(func, 17);
+        setTimeout(animate, 100);
+    }
+    animate();
+</script>
+
+</html>

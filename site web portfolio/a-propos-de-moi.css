@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carme&family=Mukta:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Carme&family=Mukta:wght@600;700&family=Rock+Salt&display=swap');
+
+html, body { /*Pour pas que ça laisse des bords blancs sur les côtés, on met ça à 0 pour que le fond prenne toute la place*/
+
+  /* min-height: 318vh;*/
+  background-image: linear-gradient(to top, #A566AA, #402C6A);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  height: 100%;
+}
+canvas {
+	opacity: 0.5;
+	position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+}
+canvas .cnv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+}
+
+/* On définit la couleur de ton dégradé en disant qu'il est collé en haut et à gauche */
+/*.gradient {
+  display: block;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.gradient .bg {
+  overflow: auto;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: calc(100% + 100px);
+  background-image: linear-gradient(to top, #A566AA, #402C6A);
+  transform: translate(-50%, -50%);
+} 
+/* Creates a transparent scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* La position de ton contenu. C'est en absolute parce qu'il faut que ce soit dessus le fond étoilé */
+.content {
+    position: absolute;
+    font-size: large;
+    z-index: 1;
+    color: white;
+    top: 50px;
+    width: 100%;
+}
+
+/* Ta barre de navigation, on dit juste qu'elle doit être 20px en dessous du bord haut de l'écran */
+.navbar {
+    top: 0px;
+    left: 100;
+    right: 0px;
+    margin: 0 auto;
+    z-index: 1;
+    text-align: center;
+    position: relative;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin-right: -25%;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Mukta', sans-serif;
+}
+.nav-list * {
+    box-sizing: border-box;
+}
+
+.nav-list li {
+    font-size: 18px;
+    display: inline-block;
+    margin: 0 10px;
+    list-style: outside none none;
+    padding: 0;
+    opacity: .5;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.nav-list li:hover{
+  opacity: 1;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #402C6A;
+}
+
+.nav-list a {
+  padding: 0.5em 1;
+  color: rgb(255, 255, 255);
+  position: relative;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px #402C6A;
+}
+.nav-list a:before,
+.nav-list a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+.nav-list a:before {
+  bottom: 0;
+  display: block;
+  height: 1.5px;
+  width: 0%;
+  content: "";
+  background-color: #ffffff50;
+}
+.nav-list a:hover:before,
+.nav-list .current a:before {
+  opacity: 1;
+  width: 100%;
+  background-color: #ffffff;
+}
+.nav-list a:hover:after,
+.nav-list .current a:after {
+  max-width: 100%;
+  left: 0;
+  top: 0;
+  padding: 0.5em 0;
+  position: absolute;
+  content: attr(data-hover);
+  background-color: #ffffff;
+  white-space: nowrap;
+  max-width: 0%;
+  overflow: hidden;
+}
+
+/* Ton logo, ses dimensions et la taille qu'il doit prendre */
+.logo img {
+  width: 275px;
+  filter: drop-shadow(1px 1px 2px #402C6A);
+  margin: 10px;
+  margin-top: -10px;
+  margin-left: -100px;
+}
+.logo figure img {
+	opacity: 1;
+	-webkit-transition: .3s ;
+	transition: .3s;
+}
+.logo figure:hover img {
+	opacity: .5;
+}
+
+/* Ca c'est le bloc qui te permet de séparer ta barre de navigation de ton logo */
+.blocFlex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+    
+}
+.line {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .element2 {
+  display: flex;
+}
+ .presentation {
+  padding-top : 40px;
+   text-align: center;
+   font-family: 'Carme', sans-serif;
+   color: white;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+   font-size: 25px;
+ } 
+  .prenomnom {
+    text-align: center;
+    font-family: 'Carme', sans-serif;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0px 8px 0px rgba(255, 255, 255, 0.25), 0px 14px 0px rgba(255, 255, 255, 0.15);
+  }
+  .photo-moi img {
+    width: 350px;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+  .photo-moi-fond img {
+    width: 350px;
+    padding: 20px;
+    margin-top: -350px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    filter: blur(0px);
+  }
+  .une-passion {
+    text-align: center;
+    font-family: 'Rock Salt', cursive;
+    color: white;
+    font-size: 35px;
+    margin-top: 60PX;
+    text-shadow: 0px 0px 5px #ffffff ;
+  }
+  .parcours {
+    margin-top: 100px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 24px;
+    margin-left: 20%;
+    margin-right: 0;
+    text-shadow: 0px 0px 5px #ffffffe4 ;
+  }
+  .portrait-gif-bg {
+    filter: blur(10px);
+    z-index: -1;
+    width: 510px;
+    padding: 20px;
+    margin-top: -390px;
+    margin-left: 50%;
+    margin-right: 0;
+    border-radius: 50%;
+
+  }
+  .portrait-gif {
+    position: absolute;
+    width: 510px;
+    padding: 20px;
+    margin-top: -505px;
+    margin-left: 50%;
+    margin-right: 0;
+    border-radius: 50;  
+}
+  .line2 {
+    position:0;
+    display: 0;
+    margin-top: -50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .gif-quote-bg {
+    filter: blur(10px);
+    z-index: -1;
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 0;
+    border-radius: 50%;
+  }
+  .gif-quote {
+    position: absolute;
+    width: 1000px;
+    padding: 20px;
+    margin-top: -379px;
+    margin-left: 25%;
+    margin-right: 0;
+    border-radius: 50%;
+  }
+  .quote {
+    margin-top: 100px;
+    font-family: 'Mukta', sans-serif;
+    font-size: 30px;
+    margin-left: 20%;
+    margin-right: 0;
+    text-shadow: 0px 0px 5px #ffffffe4 ;
+  }
+  .quote1 {
+    margin-left: -5%;
+    margin-right: 0;
+  }
+  .quote2 {
+    margin-left: 20%;
+    margin-right: 0;
+  }
+  .auteur {
+    margin-left: 70%;
+    margin-right: 0;
+  }
+  .nuage-titre {
+    max-width: auto;
+    height : auto;
+    margin-top: -379px;
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+  .nomprenom {
+    margin-top: -40px;
+    margin-left: 20px;
+    color: #402C6A;
+    font-size: 20px ;
+  }
+  .siteweb {
+    margin-top: -30px;
+    text-align: center;
+    color: #402C6A;
+    font-size: 20px ;
+  }
+  .date {
+    margin-top: -30px;
+    margin-right: 20px;
+    text-align: right;
+    color: #402C6A;
+    font-size: 20px ;
+  }
+  

@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap');
+
+html, body { /* Pour pas que ça laisse des bords blancs sur les côtés, on met ça à 0 pour que le fond prenne toute la place */
+  padding: 0;
+  margin: 0;
+}
+
+/* On définit la couleur de ton dégradé en disant qu'il est collé en haut et à gauche */
+.gradient {
+  top: 0;
+  left: 0;
+  background: linear-gradient(to bottom, #402C6A, #A566AA);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  opacity: 1;
+  object-fit: cover;
+  mix-blend-mode: color-dodge;
+}
+
+/* La position de ton contenu. C'est en absolute parce qu'il faut que ce soit dessus le fond étoilé */
+.content {
+    position: absolute;
+    font-size: large;
+    z-index: 1;
+    color: white;
+    top: 50px;
+    width: 100%;
+}
+
+/* Ta barre de navigation, on dit juste qu'elle doit être 20px en dessous du bord haut de l'écran */
+.navbar {
+    top: 20px;
+    left: 1000px;
+    right: 0px;
+    margin: 0 auto;
+    z-index: 1;
+    text-align: center;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin-right: -25%;
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Mukta', sans-serif;
+}
+.nav-list * {
+    box-sizing: border-box;
+}
+
+.nav-list li {
+    font-size: 18px;
+    display: inline-block;
+    margin: 0 10px;
+    list-style: outside none none;
+    padding: 0;
+    opacity: .5;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.nav-list li:hover{
+  opacity: 1;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    text-shadow: 1px 1px 2px #402C6A;
+}
+
+.nav-list a {
+  padding: 0.5em 1;
+  color: rgb(255, 255, 255);
+  position: relative;
+  text-decoration: none;
+  text-shadow: 1px 1px 2px #402C6A;
+}
+.nav-list a:before,
+.nav-list a:after {
+  position: absolute;
+  -webkit-transition: all 0.35s ease-in-out;
+  transition: all 0.35s ease-in-out;
+}
+.nav-list a:before {
+  bottom: 0;
+  display: block;
+  height: 1.5px;
+  width: 0%;
+  content: "";
+  background-color: #ffffff50;
+}
+.nav-list a:hover:before,
+.nav-list .current a:before {
+  opacity: 1;
+  width: 100%;
+  background-color: #ffffff;
+}
+.nav-list a:hover:after,
+.nav-list .current a:after {
+  max-width: 100%;
+    left: 0;
+  top: 0;
+  padding: 0.5em 0;
+  position: absolute;
+  content: attr(data-hover);
+  background-color: #ffffff;
+  white-space: nowrap;
+  max-width: 0%;
+  overflow: hidden;
+}
+
+/* Ton logo, ses dimensions et la taille qu'il doit prendre */
+.logo img {
+  width: 275px;
+  filter: drop-shadow(1px 1px 2px #402C6A);
+  margin: 10px;
+  margin-top: -10px;
+  margin-left: -100px;
+}
+.logo figure img {
+	opacity: 1;
+	-webkit-transition: .3s ;
+	transition: .3s;
+}
+.logo figure:hover img {
+	opacity: .5;
+}
+
+/* Ca c'est le bloc qui te permet de séparer ta barre de navigation de ton logo */
+.blocFlex {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+    
+}
+hr {  
+  width:1000px;
+}
